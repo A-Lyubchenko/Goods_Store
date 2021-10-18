@@ -2,6 +2,7 @@ package ua.lyubchenko.goods.store.service;
 
 import lombok.Builder;
 import ua.lyubchenko.goods.store.repository.Product;
+
 @Builder
 public class ItemOrder {
     private Product product;
@@ -14,10 +15,8 @@ public class ItemOrder {
     }
 
     public Integer getItemPriceWithPromotional() {
-        if (product.getPromotionalQuantity() == amount) {
-            return product.getPromotionalPrice();
-        }
-        return product.getPrice() * amount;
+        int promotional = (int) (((product.getPrice() / 100.0) * product.getPromotional()) * amount);
+        return product.getPrice() * amount - promotional;
     }
 
 

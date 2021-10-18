@@ -10,5 +10,5 @@ public class Product {
     private String name;
     private int price;
     private int promotionalQuantity;
-    private int promotionalPrice;
+    private int promotional;
 }
