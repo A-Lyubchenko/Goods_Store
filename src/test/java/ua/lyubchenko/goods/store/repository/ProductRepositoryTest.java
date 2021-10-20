@@ -4,6 +4,7 @@ package ua.lyubchenko.goods.store.repository;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import ua.lyubchenko.goods.store.model.Product;
 
 public class ProductRepositoryTest {
 

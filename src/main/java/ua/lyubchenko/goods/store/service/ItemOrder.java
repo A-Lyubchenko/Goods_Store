@@ -1,7 +1,7 @@
 package ua.lyubchenko.goods.store.service;
 
 import lombok.Builder;
-import ua.lyubchenko.goods.store.repository.Product;
+import ua.lyubchenko.goods.store.model.Product;
 
 @Builder
 public class ItemOrder {
@@ -9,15 +9,13 @@ public class ItemOrder {
     private int amount;
 
 
-    public Integer getItemPrice() {
-
-        return getItemPriceWithPromotional();
+    public Float getItemPrice() {
+        if (product.getPromotionalQuantity()==0)
+            return product.getPrice()*amount;
+        int count = amount / product.getPromotionalQuantity();
+        float promotionalCount = count * product.getPromotional();
+        int result = (amount - (product.getPromotionalQuantity() * count));
+        float price = result * product.getPrice();
+        return promotionalCount + price;
     }
-
-    public Integer getItemPriceWithPromotional() {
-        int promotional = (int) (((product.getPrice() / 100.0) * product.getPromotional()) * amount);
-        return product.getPrice() * amount - promotional;
-    }
-
-
 }

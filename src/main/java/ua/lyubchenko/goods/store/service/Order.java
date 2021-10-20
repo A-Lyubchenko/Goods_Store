@@ -9,10 +9,10 @@ public class Order {
         this.itemOrders = itemOrders;
     }
 
-    public Integer getItemsSum() {
+    public Float getItemsSum() {
         return itemOrders.stream()
                 .map(ItemOrder::getItemPrice)
-                .reduce(Integer::sum).orElse(0);
+                .reduce(Float::sum).orElse(0f);
 
     }
 

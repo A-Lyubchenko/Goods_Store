@@ -13,11 +13,10 @@ public class OrderTest {
     private Order order;
     private final ProductService service = new ProductService();
     private final List<ItemOrder> items = new ArrayList<>();
-    private ItemOrder a;
 
-    @Before
-    public void setUp() {
-        a = service.getItem("A", 1);
+    @Test
+    public void sumShouldBeWithoutPromotional() {
+        ItemOrder a = service.getItem("A", 1);
         ItemOrder b = service.getItem("B", 1);
         ItemOrder c = service.getItem("C", 1);
         ItemOrder d = service.getItem("D", 1);
@@ -25,23 +24,18 @@ public class OrderTest {
         items.add(b);
         items.add(c);
         items.add(d);
-        order = new Order(new ArrayList<>(items));
-    }
-
-    @Test
-    public void sumShouldBeTen() {
         order = service.getTotalCoast(items);
-        Integer expected = 10;
+        Float expected = 7.25f;
         Assert.assertEquals(expected, order.getItemsSum());
 
     }
 
 
     @Test
-    public void sumShouldBeApplePromotional() {
-        a = service.getItem("A", 5);
+    public void sumShouldBePromotional() {
+        ItemOrder a = service.getItem("A", 3);
         order = new Order(Collections.singletonList(a));
-        Integer expected = 4;
+        Float expected = 3f;
         Assert.assertEquals(expected, order.getItemsSum());
 
     }

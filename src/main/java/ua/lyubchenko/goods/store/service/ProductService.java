@@ -1,7 +1,7 @@
 package ua.lyubchenko.goods.store.service;
 
 import ua.lyubchenko.goods.store.repository.IRepository;
-import ua.lyubchenko.goods.store.repository.Product;
+import ua.lyubchenko.goods.store.model.Product;
 import ua.lyubchenko.goods.store.repository.ProductRepository;
 
 
