@@ -1,10 +1,14 @@
-package ua.lyubchenko.goods.store.service;
+package ua.lyubchenko.goods.store.сontrollers;
 
 
+
+import ua.lyubchenko.goods.store.service.ItemOrder;
+import ua.lyubchenko.goods.store.service.Order;
+import ua.lyubchenko.goods.store.service.ProductService;
 
 import java.util.*;
 
-public class Controller {
+public class ProductController {
 
     private static final Map<String, Integer> integerMap = new HashMap<>();
 

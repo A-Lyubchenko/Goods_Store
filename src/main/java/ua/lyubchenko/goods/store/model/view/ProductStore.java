@@ -1,6 +1,6 @@
-package ua.lyubchenko.goods.store;
+package ua.lyubchenko.goods.store.model.view;
 
-import ua.lyubchenko.goods.store.service.Controller;
+import ua.lyubchenko.goods.store.сontrollers.ProductController;
 
 import ua.lyubchenko.goods.store.service.Order;
 
@@ -11,9 +11,9 @@ public class ProductStore {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Controller controller = new Controller();
+        ProductController controller = new ProductController();
         System.out.println("Введите вашу покупку");
         Order order = controller.setItemOrders(scanner.nextLine());
-        System.out.format("Ваша цена составляет %d $.", order.getItemsSum());
+        System.out.format("Ваша цена составляет %f $.", order.getItemsSum());
     }
 }
